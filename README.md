@@ -15,6 +15,9 @@ Must provide an id selector. Class selectors won't work!
 ## Browser support
 TBD (if it breaks on version X of browser Y, let me know! Seriously though, I wonder if there are tools out there to help with this...)
 
+## Apps
+* [HISH chrome extension](https://chrome.google.com/webstore/detail/hish-highlight-and-share/abjogbjmhejlfeepnhmgenhcdkmjabeh) by [RobertDaleSmith](https://github.com/RobertDaleSmith)
+
 ## Notes
 * first JS library! \*__pops champagne__\*
 * dependent on that cash $$$ JQuery but likely going to make it standalone in the near future
