@@ -211,8 +211,23 @@
     if (selected_text && selected_text.length > 0) {
       // find the bounding box of the highlighted text
       var rect = window.getSelection().getRangeAt(0).getBoundingClientRect();
-      var y = rect.bottom - rect.height + document.body.scrollTop + 6;
-      var x = rect.left + rect.width / 2 + document.body.scrollLeft;
+
+      /*
+      document.body.scrollTop returns 0 on Firefox, making the popover open in a incorrect Y value
+
+      e.g.: http://stackoverflow.com/questions/7435843/window-top-document-body-scrolltop-not-working-in-chrome-or-firefox
+      */
+
+      var isWebkit = 'WebkitAppearance' in document.documentElement.style;
+
+      if(isWebkit) {
+        var y = rect.bottom - rect.height + document.body.scrollTop + 6;
+        var x = rect.left + rect.width / 2 + document.body.scrollLeft;
+      } else {
+        var y = rect.bottom - rect.height + document.documentElement.scrollTop + 6;
+        var x = rect.left + rect.width / 2 + document.body.scrollLeft;
+      }
+      
       popover.show(x, y);
     } else {
       popover.hide();
